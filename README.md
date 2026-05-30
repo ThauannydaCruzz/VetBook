@@ -1,7 +1,6 @@
 # 🐾 VetBook — Sistema Veterinário
 
-Sistema completo de gestão veterinária desenvolvido com **.NET 8**, **ASP.NET Core Web API**, seguindo os princípios de **Domain-Driven Design (DDD)**, **Clean Architecture**, **SOLID** e **CQRS** quando aplicável.
-
+Sistema completo de gestão veterinária desenvolvido com **.NET 8**, **ASP.NET Core Web API**, seguindo os princípios de **Domain-Driven Design (DDD)** e **Clean Architecture**.
 ---
 
 ## 📐 Arquitetura
