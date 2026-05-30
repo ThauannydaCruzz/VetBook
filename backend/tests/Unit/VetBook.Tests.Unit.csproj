@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SharedKernel\VetBook.SharedKernel.csproj" />
+    <ProjectReference Include="..\..\src\CadastroContext\Domain\VetBook.CadastroContext.Domain.csproj" />
+    <ProjectReference Include="..\..\src\VeterinarioContext\Domain\VetBook.VeterinarioContext.Domain.csproj" />
+    <ProjectReference Include="..\..\src\AgendamentoContext\Domain\VetBook.AgendamentoContext.Domain.csproj" />
+    <ProjectReference Include="..\..\src\CadastroContext\Application\VetBook.CadastroContext.Application.csproj" />
+    <ProjectReference Include="..\..\src\VeterinarioContext\Application\VetBook.VeterinarioContext.Application.csproj" />
+    <ProjectReference Include="..\..\src\AgendamentoContext\Application\VetBook.AgendamentoContext.Application.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit" Version="2.6.6" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="FluentAssertions" Version="6.12.0" />
+  </ItemGroup>
+</Project>

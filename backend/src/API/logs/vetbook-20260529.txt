@@ -1,0 +1,635 @@
+2026-05-29 22:33:37.678 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/auth/me - application/json null
+2026-05-29 22:33:37.779 -03:00 [INF] Failed to validate the token.
+Microsoft.IdentityModel.Tokens.SecurityTokenExpiredException: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '28/05/2026 23:29:43', Current time (UTC): '30/05/2026 01:33:37'.
+   at Microsoft.IdentityModel.Tokens.Validators.ValidateLifetime(Nullable`1 notBefore, Nullable`1 expires, SecurityToken securityToken, TokenValidationParameters validationParameters)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateTokenPayloadAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ValidateJWSAsync(JsonWebToken jsonWebToken, TokenValidationParameters validationParameters, BaseConfiguration configuration)
+2026-05-29 22:33:37.863 -03:00 [INF] Bearer was not authenticated. Failure message: IDX10223: Lifetime validation failed. The token is expired. ValidTo (UTC): '28/05/2026 23:29:43', Current time (UTC): '30/05/2026 01:33:37'.
+2026-05-29 22:33:37.873 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-29 22:33:37.903 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-29 22:33:37.906 -03:00 [INF] HTTP GET /api/auth/me responded 401 in 162.7504 ms
+2026-05-29 22:33:37.912 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/auth/me - 401 0 null 236.4157ms
+2026-05-29 22:46:02.671 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 44
+2026-05-29 22:46:02.684 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:46:02.690 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-29 22:46:03.112 -03:00 [INF] Executed DbCommand (30ms) [Parameters=[@__cleaned_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Donos" AS d
+WHERE d."Cpf" = @__cleaned_0
+LIMIT 1
+2026-05-29 22:46:03.507 -03:00 [INF] Login dono: teste ("dfa86cbf-cc64-4967-9693-572b8f0152bb")
+2026-05-29 22:46:03.511 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.API.Authentication.LoginResponse, VetBook.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:46:03.515 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 814.8906ms
+2026-05-29 22:46:03.519 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:46:03.521 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 839.5453 ms
+2026-05-29 22:46:03.527 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 855.5014ms
+2026-05-29 22:46:03.919 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:46:03.928 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:46:03.931 -03:00 [INF] Route matched with {action = "ObterPorDono", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorDono(System.Guid, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-29 22:46:03.963 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[@__donoId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo", d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Pets" AS p
+INNER JOIN "Donos" AS d ON p."DonoId" = d."Id"
+WHERE p."DonoId" = @__donoId_0
+ORDER BY p."Nome"
+2026-05-29 22:46:03.992 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:46:04.013 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API) in 79.4171ms
+2026-05-29 22:46:04.016 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:46:04.019 -03:00 [INF] HTTP GET /api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb responded 200 in 93.2024 ms
+2026-05-29 22:46:04.026 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 106.1122ms
+2026-05-29 22:46:53.421 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - application/json null
+2026-05-29 22:46:53.422 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - application/json null
+2026-05-29 22:46:53.423 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:46:53.431 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:46:53.435 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:46:53.439 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:46:53.442 -03:00 [INF] Route matched with {action = "ListarAtivos", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivos(System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:46:53.446 -03:00 [INF] Route matched with {action = "ListarAtivas", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivas(System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:46:53.448 -03:00 [INF] Route matched with {action = "ObterPorDono", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorDono(System.Guid, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-29 22:46:53.684 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."Ativo", v."ClinicaId", v."Crmv", v."DataAtualizacao", v."DataCadastro", v."Email", v."Especialidade", v."Nome", v."Telefone", c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Veterinarios" AS v
+LEFT JOIN "Clinicas" AS c ON v."ClinicaId" = c."Id"
+WHERE v."Ativo"
+ORDER BY v."Nome"
+2026-05-29 22:46:53.820 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:46:54.422 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__donoId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo", d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Pets" AS p
+INNER JOIN "Donos" AS d ON p."DonoId" = d."Id"
+WHERE p."DonoId" = @__donoId_0
+ORDER BY p."Nome"
+2026-05-29 22:46:54.552 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API) in 1091.4084ms
+2026-05-29 22:46:54.811 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:46:54.804 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:46:54.635 -03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+WHERE c."Ativo"
+ORDER BY c."Nome"
+2026-05-29 22:46:55.053 -03:00 [INF] HTTP GET /api/veterinarios/ativos responded 200 in 1624.6942 ms
+2026-05-29 22:46:55.058 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API) in 1259.8141ms
+2026-05-29 22:46:55.067 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.List`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:46:55.069 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - 200 null application/json; charset=utf-8 1648.3548ms
+2026-05-29 22:46:55.072 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:46:55.081 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API) in 1512.4577ms
+2026-05-29 22:46:55.101 -03:00 [INF] HTTP GET /api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb responded 200 in 1664.1172 ms
+2026-05-29 22:46:55.103 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:46:55.321 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 1897.3077ms
+2026-05-29 22:46:55.337 -03:00 [INF] HTTP GET /api/clinicas/ativas responded 200 in 1904.7154 ms
+2026-05-29 22:46:55.538 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - 200 null application/json; charset=utf-8 2116.1682ms
+2026-05-29 22:47:10.383 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=2d4283dd-1e42-42c0-9308-4e870aed31b8&dataInicio=2026-05-29T03:00:00.000Z&dataFim=2026-05-30T02:59:00.000Z&pageSize=100 - application/json null
+2026-05-29 22:47:10.400 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:47:10.403 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:47:10.452 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+2026-05-29 22:47:10.484 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime), @__p_4='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_4 OFFSET @__p_3
+2026-05-29 22:47:10.490 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:47:10.493 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 86.9785ms
+2026-05-29 22:47:10.494 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:47:10.497 -03:00 [INF] HTTP GET /api/consultas responded 200 in 99.1559 ms
+2026-05-29 22:47:10.500 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=2d4283dd-1e42-42c0-9308-4e870aed31b8&dataInicio=2026-05-29T03:00:00.000Z&dataFim=2026-05-30T02:59:00.000Z&pageSize=100 - 200 null application/json; charset=utf-8 117.2096ms
+2026-05-29 22:47:11.482 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=2d4283dd-1e42-42c0-9308-4e870aed31b8&dataInicio=2026-05-30T03:00:00.000Z&dataFim=2026-05-31T02:59:00.000Z&pageSize=100 - application/json null
+2026-05-29 22:47:11.592 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:47:11.729 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:47:11.935 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+2026-05-29 22:47:12.163 -03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime), @__p_4='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_4 OFFSET @__p_3
+2026-05-29 22:47:12.184 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:47:12.189 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 303.2892ms
+2026-05-29 22:47:12.192 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:47:12.194 -03:00 [INF] HTTP GET /api/consultas responded 200 in 602.9549 ms
+2026-05-29 22:47:12.198 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=2d4283dd-1e42-42c0-9308-4e870aed31b8&dataInicio=2026-05-30T03:00:00.000Z&dataFim=2026-05-31T02:59:00.000Z&pageSize=100 - 200 null application/json; charset=utf-8 716.1391ms
+2026-05-29 22:47:21.951 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/consultas - application/json 192
+2026-05-29 22:47:21.959 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API)'
+2026-05-29 22:47:21.965 -03:00 [INF] Route matched with {action = "Agendar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Agendar(VetBook.AgendamentoContext.Application.DTOs.CreateConsultaRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:47:22.018 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__veterinarioId_0='?' (DbType = Guid), @__inicio_1='?' (DbType = DateTime), @__fim_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Consultas" AS c
+    WHERE c."VeterinarioId" = @__veterinarioId_0 AND c."DataConsulta" >= @__inicio_1 AND c."DataConsulta" <= @__fim_2 AND c."StatusConsulta" <> 'Cancelada')
+2026-05-29 22:47:22.040 -03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__petId_0='?' (DbType = Guid), @__inicio_1='?' (DbType = DateTime), @__fim_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Consultas" AS c
+    WHERE c."PetId" = @__petId_0 AND c."DataConsulta" >= @__inicio_1 AND c."DataConsulta" <= @__fim_2 AND c."StatusConsulta" <> 'Cancelada')
+2026-05-29 22:47:22.077 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?' (DbType = Guid), @p7='?', @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Consultas" ("Id", "DataAtualizacao", "DataCadastro", "DataConsulta", "MotivoConsulta", "Observacoes", "PetId", "StatusConsulta", "VeterinarioId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-05-29 22:47:22.093 -03:00 [INF] Consulta agendada: "35a817a9-ebc0-4321-96f4-4fe23ad72d44"
+2026-05-29 22:47:22.098 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:47:22.108 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API) in 139.5465ms
+2026-05-29 22:47:22.203 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API)'
+2026-05-29 22:47:22.207 -03:00 [INF] HTTP POST /api/consultas responded 201 in 248.1137 ms
+2026-05-29 22:47:22.214 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/consultas - 201 null application/json; charset=utf-8 262.0897ms
+2026-05-29 22:47:32.040 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 40
+2026-05-29 22:47:32.052 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:47:32.057 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-29 22:47:32.126 -03:00 [INF] Executed DbCommand (38ms) [Parameters=[@__cleaned_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Donos" AS d
+WHERE d."Cpf" = @__cleaned_0
+LIMIT 1
+2026-05-29 22:47:32.138 -03:00 [WRN] Tentativa de login invalida: Admin
+2026-05-29 22:47:32.147 -03:00 [INF] Executing UnauthorizedObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse'.
+2026-05-29 22:47:32.164 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 99.5791ms
+2026-05-29 22:47:32.170 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:47:32.177 -03:00 [INF] HTTP POST /api/auth/login responded 401 in 124.8567 ms
+2026-05-29 22:47:32.185 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 401 null application/json; charset=utf-8 144.7969ms
+2026-05-29 22:47:44.050 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 40
+2026-05-29 22:47:44.061 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:47:44.066 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-29 22:47:44.080 -03:00 [INF] Login fixo: Admin (Admin)
+2026-05-29 22:47:44.097 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.API.Authentication.LoginResponse, VetBook.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:47:44.190 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 112.2969ms
+2026-05-29 22:47:44.194 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:47:44.197 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 136.1414 ms
+2026-05-29 22:47:44.200 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 150.2183ms
+2026-05-29 22:47:44.269 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas - application/json null
+2026-05-29 22:47:44.278 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:47:44.283 -03:00 [INF] Route matched with {action = "Listar", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(Int32, Int32, System.String, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:47:44.308 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Clinicas" AS c
+2026-05-29 22:47:44.327 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+ORDER BY c."Nome"
+LIMIT @__p_1 OFFSET @__p_0
+2026-05-29 22:47:44.335 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:47:44.341 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.Listar (VetBook.API) in 55.8487ms
+2026-05-29 22:47:44.344 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:47:44.346 -03:00 [INF] HTTP GET /api/clinicas responded 200 in 70.4040 ms
+2026-05-29 22:47:44.349 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas - 200 null application/json; charset=utf-8 80.5732ms
+2026-05-29 22:48:08.090 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/clinicas - application/json 91
+2026-05-29 22:48:08.196 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.Criar (VetBook.API)'
+2026-05-29 22:48:08.536 -03:00 [INF] Route matched with {action = "Criar", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.VeterinarioContext.Application.DTOs.CreateClinicaRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:48:08.816 -03:00 [INF] Executed DbCommand (25ms) [Parameters=[@__nome_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Clinicas" AS c
+    WHERE c."Nome" = @__nome_0)
+2026-05-29 22:48:09.310 -03:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?', @p4='?', @p5='?', @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clinicas" ("Id", "DataAtualizacao", "DataCadastro", "Email", "Endereco", "Nome", "Telefone")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING "Ativo";
+2026-05-29 22:48:09.548 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:48:09.586 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.Criar (VetBook.API) in 930.3574ms
+2026-05-29 22:48:09.651 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.Criar (VetBook.API)'
+2026-05-29 22:48:09.657 -03:00 [INF] HTTP POST /api/clinicas responded 201 in 1470.0426 ms
+2026-05-29 22:48:09.761 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/clinicas - 201 null application/json; charset=utf-8 1671.7901ms
+2026-05-29 22:48:09.776 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas - application/json null
+2026-05-29 22:48:10.342 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:48:10.348 -03:00 [INF] Route matched with {action = "Listar", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(Int32, Int32, System.String, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:48:10.629 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Clinicas" AS c
+2026-05-29 22:48:10.658 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+ORDER BY c."Nome"
+LIMIT @__p_1 OFFSET @__p_0
+2026-05-29 22:48:10.679 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:48:10.683 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.Listar (VetBook.API) in 86.9228ms
+2026-05-29 22:48:10.688 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:48:10.690 -03:00 [INF] HTTP GET /api/clinicas responded 200 in 348.5113 ms
+2026-05-29 22:48:10.692 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas - 200 null application/json; charset=utf-8 916.3556ms
+2026-05-29 22:50:49.069 -03:00 [INF] Application is shutting down...
+2026-05-29 22:51:23.770 -03:00 [INF] Iniciando VetBook API com Supabase PostgreSQL...
+2026-05-29 22:51:46.902 -03:00 [INF] Conexao com Supabase PostgreSQL estabelecida com sucesso.
+2026-05-29 22:51:47.504 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-29 22:51:47.655 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-29 22:51:48.043 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-29 22:51:48.056 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-29 22:51:48.061 -03:00 [INF] Hosting environment: Production
+2026-05-29 22:51:48.067 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-29 22:51:48.151 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 44
+2026-05-29 22:51:48.625 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:51:48.704 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-29 22:51:50.805 -03:00 [INF] Executed DbCommand (145ms) [Parameters=[@__cleaned_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Donos" AS d
+WHERE d."Cpf" = @__cleaned_0
+LIMIT 1
+2026-05-29 22:51:52.759 -03:00 [INF] Login dono: teste ("dfa86cbf-cc64-4967-9693-572b8f0152bb")
+2026-05-29 22:51:52.823 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.API.Authentication.LoginResponse, VetBook.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:51:52.947 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 4227.6579ms
+2026-05-29 22:51:52.995 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:51:53.040 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 4565.2274 ms
+2026-05-29 22:51:53.079 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 4932.4488ms
+2026-05-29 22:51:53.483 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:51:53.483 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:51:53.483 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:51:53.752 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:51:53.753 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:51:53.756 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:51:53.840 -03:00 [INF] Route matched with {action = "ObterPorDono", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorDono(System.Guid, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-29 22:51:53.912 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:51:53.903 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:51:54.972 -03:00 [INF] Executed DbCommand (119ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:51:55.136 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:51:55.543 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__donoId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo", d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Pets" AS p
+INNER JOIN "Donos" AS d ON p."DonoId" = d."Id"
+WHERE p."DonoId" = @__donoId_0
+ORDER BY p."Nome"
+2026-05-29 22:51:56.702 -03:00 [INF] Executed DbCommand (763ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:51:56.703 -03:00 [INF] Executed DbCommand (560ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:51:56.901 -03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:51:56.902 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:51:56.987 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:51:57.169 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:51:57.169 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:51:57.223 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API) in 3256.0485ms
+2026-05-29 22:51:57.334 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 3328.1182ms
+2026-05-29 22:51:57.335 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 3333.0012ms
+2026-05-29 22:51:57.354 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:51:57.366 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:51:57.368 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:51:57.370 -03:00 [INF] HTTP GET /api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb responded 200 in 3830.3489 ms
+2026-05-29 22:51:57.371 -03:00 [INF] HTTP GET /api/consultas responded 200 in 3803.6311 ms
+2026-05-29 22:51:57.373 -03:00 [INF] HTTP GET /api/consultas responded 200 in 3832.7314 ms
+2026-05-29 22:51:57.383 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 3899.6575ms
+2026-05-29 22:51:57.400 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 3916.7985ms
+2026-05-29 22:51:57.400 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 3916.2472ms
+2026-05-29 22:52:00.882 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:52:00.889 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - application/json null
+2026-05-29 22:52:00.890 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - application/json null
+2026-05-29 22:52:00.938 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:52:00.938 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:52:00.942 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:52:00.945 -03:00 [INF] Route matched with {action = "ObterPorDono", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorDono(System.Guid, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-29 22:52:00.957 -03:00 [INF] Route matched with {action = "ListarAtivas", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivas(System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:52:00.958 -03:00 [INF] Route matched with {action = "ListarAtivos", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivos(System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:52:00.985 -03:00 [INF] Executed DbCommand (24ms) [Parameters=[@__donoId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo", d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Pets" AS p
+INNER JOIN "Donos" AS d ON p."DonoId" = d."Id"
+WHERE p."DonoId" = @__donoId_0
+ORDER BY p."Nome"
+2026-05-29 22:52:00.993 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:52:01.106 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API) in 154.2456ms
+2026-05-29 22:52:01.110 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:52:01.122 -03:00 [INF] HTTP GET /api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb responded 200 in 188.2615 ms
+2026-05-29 22:52:01.132 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 249.2673ms
+2026-05-29 22:52:01.187 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+WHERE c."Ativo"
+ORDER BY c."Nome"
+2026-05-29 22:52:01.218 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."Ativo", v."ClinicaId", v."Crmv", v."DataAtualizacao", v."DataCadastro", v."Email", v."Especialidade", v."Nome", v."Telefone", c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Veterinarios" AS v
+LEFT JOIN "Clinicas" AS c ON v."ClinicaId" = c."Id"
+WHERE v."Ativo"
+ORDER BY v."Nome"
+2026-05-29 22:52:01.263 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.List`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:52:01.278 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API) in 314.1765ms
+2026-05-29 22:52:01.282 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:52:01.285 -03:00 [INF] HTTP GET /api/clinicas/ativas responded 200 in 344.2540 ms
+2026-05-29 22:52:01.288 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:52:01.289 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - 200 null application/json; charset=utf-8 399.5674ms
+2026-05-29 22:52:01.329 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API) in 362.3474ms
+2026-05-29 22:52:01.333 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:52:01.336 -03:00 [INF] HTTP GET /api/veterinarios/ativos responded 200 in 398.8373 ms
+2026-05-29 22:52:01.340 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - 200 null application/json; charset=utf-8 450.5946ms
+2026-05-29 22:52:07.998 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:52:07.999 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:52:08.040 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:52:08.020 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:52:08.058 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:52:08.055 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:52:08.157 -03:00 [INF] Executed DbCommand (27ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:52:08.158 -03:00 [INF] Executed DbCommand (29ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:52:08.177 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:52:08.183 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:52:08.204 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:52:08.205 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:52:08.212 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:08.217 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:08.220 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 118.5965ms
+2026-05-29 22:52:08.222 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 126.8461ms
+2026-05-29 22:52:08.225 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:52:08.227 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:52:08.233 -03:00 [INF] HTTP GET /api/consultas responded 200 in 193.5447 ms
+2026-05-29 22:52:08.235 -03:00 [INF] HTTP GET /api/consultas responded 200 in 216.6731 ms
+2026-05-29 22:52:08.239 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 240.4414ms
+2026-05-29 22:52:08.245 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 247.1519ms
+2026-05-29 22:52:17.915 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 40
+2026-05-29 22:52:17.927 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:52:17.932 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-29 22:52:17.948 -03:00 [INF] Login fixo: Admin (Admin)
+2026-05-29 22:52:17.960 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.API.Authentication.LoginResponse, VetBook.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:17.970 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 29.273ms
+2026-05-29 22:52:17.978 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-29 22:52:17.986 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 59.2803 ms
+2026-05-29 22:52:17.996 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 79.8227ms
+2026-05-29 22:52:18.093 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas - application/json null
+2026-05-29 22:52:18.097 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=100 - application/json null
+2026-05-29 22:52:18.098 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos?page=1&pageSize=100 - application/json null
+2026-05-29 22:52:18.112 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:52:18.242 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-29 22:52:18.246 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Listar (VetBook.API)'
+2026-05-29 22:52:18.275 -03:00 [INF] Route matched with {action = "Listar", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(Int32, Int32, System.String, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:52:18.289 -03:00 [INF] Route matched with {action = "Listar", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.VeterinarioContext.Domain.Interfaces.VeterinarioFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:52:18.380 -03:00 [INF] Route matched with {action = "Listar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.CadastroContext.Domain.Interfaces.DonoFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-29 22:52:18.471 -03:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Clinicas" AS c
+2026-05-29 22:52:18.669 -03:00 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Veterinarios" AS v
+2026-05-29 22:52:19.147 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Donos" AS d
+2026-05-29 22:52:19.155 -03:00 [INF] Executed DbCommand (19ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+ORDER BY c."Nome"
+LIMIT @__p_1 OFFSET @__p_0
+2026-05-29 22:52:19.215 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:19.341 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.Listar (VetBook.API) in 977.0821ms
+2026-05-29 22:52:19.347 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Ativo", t."ClinicaId", t."Crmv", t."DataAtualizacao", t."DataCadastro", t."Email", t."Especialidade", t."Nome", t."Telefone", c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM (
+    SELECT v."Id", v."Ativo", v."ClinicaId", v."Crmv", v."DataAtualizacao", v."DataCadastro", v."Email", v."Especialidade", v."Nome", v."Telefone"
+    FROM "Veterinarios" AS v
+    ORDER BY v."Nome"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+LEFT JOIN "Clinicas" AS c ON t."ClinicaId" = c."Id"
+ORDER BY t."Nome"
+2026-05-29 22:52:19.473 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.Listar (VetBook.API)'
+2026-05-29 22:52:19.489 -03:00 [INF] HTTP GET /api/clinicas responded 200 in 1379.8523 ms
+2026-05-29 22:52:19.493 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:19.495 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas - 200 null application/json; charset=utf-8 1402.5049ms
+2026-05-29 22:52:19.505 -03:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Cpf", t."DataAtualizacao", t."DataCadastro", t."Email", t."Endereco", t."Nome", t."SenhaHash", t."Telefone", p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo"
+FROM (
+    SELECT d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+    FROM "Donos" AS d
+    ORDER BY d."Nome"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+LEFT JOIN "Pets" AS p ON t."Id" = p."DonoId"
+ORDER BY t."Nome", t."Id"
+2026-05-29 22:52:19.509 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API) in 1128.3726ms
+2026-05-29 22:52:19.524 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-29 22:52:19.526 -03:00 [INF] HTTP GET /api/veterinarios responded 200 in 1284.7408 ms
+2026-05-29 22:52:19.530 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=100 - 200 null application/json; charset=utf-8 1433.0036ms
+2026-05-29 22:52:19.539 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.CadastroContext.Application.DTOs.DonoResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:19.552 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Listar (VetBook.API) in 579.6673ms
+2026-05-29 22:52:19.555 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Listar (VetBook.API)'
+2026-05-29 22:52:19.557 -03:00 [INF] HTTP GET /api/donos responded 200 in 1311.0239 ms
+2026-05-29 22:52:19.559 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos?page=1&pageSize=100 - 200 null application/json; charset=utf-8 1461.5334ms
+2026-05-29 22:52:50.595 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/veterinarios - application/json 166
+2026-05-29 22:52:50.674 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.Criar (VetBook.API)'
+2026-05-29 22:52:50.743 -03:00 [INF] Route matched with {action = "Criar", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.VeterinarioContext.Application.DTOs.CreateVeterinarioRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:52:50.946 -03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__cleaned_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Veterinarios" AS v
+    WHERE v."Crmv" = @__cleaned_0)
+2026-05-29 22:52:51.130 -03:00 [INF] Executed DbCommand (135ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+WHERE c."Id" = @__id_0
+LIMIT 1
+2026-05-29 22:52:51.556 -03:00 [INF] Executed DbCommand (60ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?', @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?', @p6='?', @p7='?', @p8='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Veterinarios" ("Id", "ClinicaId", "Crmv", "DataAtualizacao", "DataCadastro", "Email", "Especialidade", "Nome", "Telefone")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8)
+RETURNING "Ativo";
+2026-05-29 22:52:51.610 -03:00 [INF] Veterinario criado: "d2b0d7e2-1824-4606-a16d-4412e709b863" - Doutora
+2026-05-29 22:52:51.614 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:51.652 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.Criar (VetBook.API) in 880.6343ms
+2026-05-29 22:52:51.656 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.Criar (VetBook.API)'
+2026-05-29 22:52:51.658 -03:00 [INF] HTTP POST /api/veterinarios responded 201 in 988.9294 ms
+2026-05-29 22:52:51.662 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/veterinarios - 201 null application/json; charset=utf-8 1073.6382ms
+2026-05-29 22:52:51.719 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=100 - application/json null
+2026-05-29 22:52:51.729 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-29 22:52:51.773 -03:00 [INF] Route matched with {action = "Listar", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.VeterinarioContext.Domain.Interfaces.VeterinarioFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:52:51.815 -03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Veterinarios" AS v
+2026-05-29 22:52:51.962 -03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT t."Id", t."Ativo", t."ClinicaId", t."Crmv", t."DataAtualizacao", t."DataCadastro", t."Email", t."Especialidade", t."Nome", t."Telefone", c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM (
+    SELECT v."Id", v."Ativo", v."ClinicaId", v."Crmv", v."DataAtualizacao", v."DataCadastro", v."Email", v."Especialidade", v."Nome", v."Telefone"
+    FROM "Veterinarios" AS v
+    ORDER BY v."Nome"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS t
+LEFT JOIN "Clinicas" AS c ON t."ClinicaId" = c."Id"
+ORDER BY t."Nome"
+2026-05-29 22:52:51.968 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:52:51.971 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API) in 183.6264ms
+2026-05-29 22:52:51.975 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-29 22:52:51.978 -03:00 [INF] HTTP GET /api/veterinarios responded 200 in 251.6599 ms
+2026-05-29 22:52:51.982 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=100 - 200 null application/json; charset=utf-8 263.2737ms
+2026-05-29 22:53:11.585 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - application/json null
+2026-05-29 22:53:11.649 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:53:11.650 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - application/json null
+2026-05-29 22:53:11.710 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:53:11.758 -03:00 [INF] Route matched with {action = "ListarAtivos", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivos(System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-29 22:53:11.751 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:53:11.734 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:53:11.788 -03:00 [INF] Route matched with {action = "ListarAtivas", controller = "Clinicas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ListarAtivas(System.Threading.CancellationToken) on controller VetBook.API.Controllers.ClinicasController (VetBook.API).
+2026-05-29 22:53:11.793 -03:00 [INF] Route matched with {action = "ObterPorDono", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorDono(System.Guid, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-29 22:53:11.810 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT v."Id", v."Ativo", v."ClinicaId", v."Crmv", v."DataAtualizacao", v."DataCadastro", v."Email", v."Especialidade", v."Nome", v."Telefone", c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Veterinarios" AS v
+LEFT JOIN "Clinicas" AS c ON v."ClinicaId" = c."Id"
+WHERE v."Ativo"
+ORDER BY v."Nome"
+2026-05-29 22:53:11.825 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.VeterinarioContext.Application.DTOs.VeterinarioResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:53:11.825 -03:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Ativo", c."DataAtualizacao", c."DataCadastro", c."Email", c."Endereco", c."Nome", c."Telefone"
+FROM "Clinicas" AS c
+WHERE c."Ativo"
+ORDER BY c."Nome"
+2026-05-29 22:53:11.832 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API) in 48.2674ms
+2026-05-29 22:53:11.840 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.ListarAtivos (VetBook.API)'
+2026-05-29 22:53:11.837 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.List`1[[VetBook.VeterinarioContext.Application.DTOs.ClinicaResponse, VetBook.VeterinarioContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:53:11.847 -03:00 [INF] HTTP GET /api/veterinarios/ativos responded 200 in 137.6514 ms
+2026-05-29 22:53:11.849 -03:00 [INF] Executed DbCommand (21ms) [Parameters=[@__donoId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id", p."DataAtualizacao", p."DataCadastro", p."DonoId", p."Especie", p."Idade", p."Nome", p."Observacoes", p."Peso", p."Raca", p."Sexo", d."Id", d."Cpf", d."DataAtualizacao", d."DataCadastro", d."Email", d."Endereco", d."Nome", d."SenhaHash", d."Telefone"
+FROM "Pets" AS p
+INNER JOIN "Donos" AS d ON p."DonoId" = d."Id"
+WHERE p."DonoId" = @__donoId_0
+ORDER BY p."Nome"
+2026-05-29 22:53:11.851 -03:00 [INF] Executed action VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API) in 54.2989ms
+2026-05-29 22:53:11.854 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios/ativos - 200 null application/json; charset=utf-8 269.5741ms
+2026-05-29 22:53:11.859 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-05-29 22:53:11.860 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ClinicasController.ListarAtivas (VetBook.API)'
+2026-05-29 22:53:11.869 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API) in 68.9506ms
+2026-05-29 22:53:11.870 -03:00 [INF] HTTP GET /api/clinicas/ativas responded 200 in 120.0467 ms
+2026-05-29 22:53:11.875 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.ObterPorDono (VetBook.API)'
+2026-05-29 22:53:11.880 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/clinicas/ativas - 200 null application/json; charset=utf-8 230.2266ms
+2026-05-29 22:53:11.883 -03:00 [INF] HTTP GET /api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb responded 200 in 152.5496 ms
+2026-05-29 22:53:11.897 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets/dono/dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 248.1413ms
+2026-05-29 22:53:25.682 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=d2b0d7e2-1824-4606-a16d-4412e709b863&dataInicio=2026-05-30T03:00:00.000Z&dataFim=2026-05-31T02:59:00.000Z&pageSize=100 - application/json null
+2026-05-29 22:53:27.621 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:27.865 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:53:28.116 -03:00 [INF] Executed DbCommand (29ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+2026-05-29 22:53:28.844 -03:00 [INF] Executed DbCommand (31ms) [Parameters=[@__filtro_VeterinarioId_Value_0='?' (DbType = Guid), @__filtro_DataInicio_Value_1='?' (DbType = DateTime), @__filtro_DataFim_Value_2='?' (DbType = DateTime), @__p_4='?' (DbType = Int32), @__p_3='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."VeterinarioId" = @__filtro_VeterinarioId_Value_0 AND c."DataConsulta" >= @__filtro_DataInicio_Value_1 AND c."DataConsulta" <= @__filtro_DataFim_Value_2
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_4 OFFSET @__p_3
+2026-05-29 22:53:28.910 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:53:28.999 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/consultas - application/json 193
+2026-05-29 22:53:29.023 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 995.8964ms
+2026-05-29 22:53:29.644 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API)'
+2026-05-29 22:53:29.659 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:29.720 -03:00 [INF] Route matched with {action = "Agendar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Agendar(VetBook.AgendamentoContext.Application.DTOs.CreateConsultaRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:53:29.995 -03:00 [INF] HTTP GET /api/consultas responded 200 in 2385.6362 ms
+2026-05-29 22:53:30.117 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?veterinarioId=d2b0d7e2-1824-4606-a16d-4412e709b863&dataInicio=2026-05-30T03:00:00.000Z&dataFim=2026-05-31T02:59:00.000Z&pageSize=100 - 200 null application/json; charset=utf-8 4434.6268ms
+2026-05-29 22:53:30.250 -03:00 [INF] Executed DbCommand (141ms) [Parameters=[@__veterinarioId_0='?' (DbType = Guid), @__inicio_1='?' (DbType = DateTime), @__fim_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Consultas" AS c
+    WHERE c."VeterinarioId" = @__veterinarioId_0 AND c."DataConsulta" >= @__inicio_1 AND c."DataConsulta" <= @__fim_2 AND c."StatusConsulta" <> 'Cancelada')
+2026-05-29 22:53:30.467 -03:00 [INF] Executed DbCommand (58ms) [Parameters=[@__petId_0='?' (DbType = Guid), @__inicio_1='?' (DbType = DateTime), @__fim_2='?' (DbType = DateTime)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Consultas" AS c
+    WHERE c."PetId" = @__petId_0 AND c."DataConsulta" >= @__inicio_1 AND c."DataConsulta" <= @__fim_2 AND c."StatusConsulta" <> 'Cancelada')
+2026-05-29 22:53:30.564 -03:00 [INF] Executed DbCommand (45ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?', @p5='?', @p6='?' (DbType = Guid), @p7='?', @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Consultas" ("Id", "DataAtualizacao", "DataCadastro", "DataConsulta", "MotivoConsulta", "Observacoes", "PetId", "StatusConsulta", "VeterinarioId")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-05-29 22:53:30.588 -03:00 [INF] Consulta agendada: "5beeae2a-0937-44bb-a93a-21b23887899a"
+2026-05-29 22:53:30.592 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:53:30.600 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API) in 590.5004ms
+2026-05-29 22:53:30.606 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Agendar (VetBook.API)'
+2026-05-29 22:53:30.608 -03:00 [INF] HTTP POST /api/consultas responded 201 in 971.5977 ms
+2026-05-29 22:53:30.612 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/consultas - 201 null application/json; charset=utf-8 1612.4495ms
+2026-05-29 22:53:30.780 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:53:30.786 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:53:30.829 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:30.833 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:31.108 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:53:31.112 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:53:31.296 -03:00 [INF] Executed DbCommand (173ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:53:31.296 -03:00 [INF] Executed DbCommand (160ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:53:31.463 -03:00 [INF] Executed DbCommand (160ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:53:31.463 -03:00 [INF] Executed DbCommand (153ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:53:31.512 -03:00 [INF] Executed DbCommand (17ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:53:31.552 -03:00 [INF] Executed DbCommand (73ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:53:32.880 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:53:33.046 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 1914.6358ms
+2026-05-29 22:53:33.022 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:53:33.263 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:33.281 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 2165.3611ms
+2026-05-29 22:53:33.313 -03:00 [INF] HTTP GET /api/consultas responded 200 in 2481.4119 ms
+2026-05-29 22:53:33.363 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:33.434 -03:00 [INF] HTTP GET /api/consultas responded 200 in 2606.4928 ms
+2026-05-29 22:53:33.411 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 2624.873ms
+2026-05-29 22:53:33.784 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=10&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 2999.8225ms
+2026-05-29 22:53:34.736 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - application/json null
+2026-05-29 22:53:35.678 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:35.885 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-29 22:53:36.098 -03:00 [INF] Executed DbCommand (46ms) [Parameters=[@__filtro_DonoId_Value_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT p."Id"
+FROM "Pets" AS p
+WHERE p."DonoId" = @__filtro_DonoId_Value_0
+2026-05-29 22:53:36.941 -03:00 [INF] Executed DbCommand (47ms) [Parameters=[@__petIds_0='?' (DbType = Object)], CommandType='"Text"', CommandTimeout='30']
+SELECT count(*)::int
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+2026-05-29 22:53:37.218 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[@__petIds_0='?' (DbType = Object), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."DataAtualizacao", c."DataCadastro", c."DataConsulta", c."MotivoConsulta", c."Observacoes", c."PetId", c."StatusConsulta", c."VeterinarioId"
+FROM "Consultas" AS c
+WHERE c."PetId" = ANY (@__petIds_0)
+ORDER BY c."DataConsulta" DESC
+LIMIT @__p_2 OFFSET @__p_1
+2026-05-29 22:53:38.121 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.AgendamentoContext.Application.DTOs.ConsultaResponse, VetBook.AgendamentoContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-29 22:53:38.576 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 2529.1221ms
+2026-05-29 22:53:39.657 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-29 22:53:39.842 -03:00 [INF] HTTP GET /api/consultas responded 200 in 4164.9058 ms
+2026-05-29 22:53:40.836 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=100&donoId=dfa86cbf-cc64-4967-9693-572b8f0152bb - 200 null application/json; charset=utf-8 6100.5097ms

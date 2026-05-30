@@ -1,0 +1,1414 @@
+2026-05-26 18:57:25.289 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 18:57:59.621 -03:00 [WRN] Erro ao inicializar banco de dados. Verifique a connection string.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Program.cs:line 45
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 18:57:59.811 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 18:57:59.830 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 18:57:59.959 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 18:57:59.966 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 18:57:59.969 -03:00 [INF] Hosting environment: Production
+2026-05-26 18:57:59.971 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 18:58:11.956 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 18:58:12.850 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 896.749ms
+2026-05-26 18:58:13.209 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 18:58:13.781 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 570.9334ms
+2026-05-26 18:59:05.147 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 159
+2026-05-26 18:59:05.366 -03:00 [INF] CORS policy execution successful.
+2026-05-26 18:59:05.731 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 18:59:06.032 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 18:59:06.248 -03:00 [INF] HTTP POST /api/donos responded 401 in 878.2894 ms
+2026-05-26 18:59:06.624 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 401 0 null 1477.8457ms
+2026-05-26 19:07:07.112 -03:00 [INF] Application is shutting down...
+2026-05-26 19:07:15.774 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:07:45.937 -03:00 [WRN] Erro ao inicializar banco de dados. Verifique a connection string.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Program.cs:line 45
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 19:07:46.144 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:07:46.163 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:07:46.267 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:07:46.273 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:07:46.275 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:07:46.276 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:09:14.697 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=57153156840 - null null
+2026-05-26 19:09:15.462 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 19:09:15.489 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 19:09:15.496 -03:00 [INF] HTTP GET /api/donos responded 401 in 244.4002 ms
+2026-05-26 19:09:15.829 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=57153156840 - 401 0 null 1131.3712ms
+2026-05-26 19:12:48.082 -03:00 [INF] Application is shutting down...
+2026-05-26 19:12:54.687 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:13:24.791 -03:00 [WRN] Erro ao inicializar banco de dados. Verifique a connection string.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass28_0`2.<Execute>b__0(DbContext context, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementation[TState,TResult](Func`3 operation, Func`3 verifySucceeded, TState state)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Program.cs:line 45
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 19:13:25.676 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:13:25.821 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:13:26.334 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:13:26.747 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:13:26.954 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:13:27.063 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:14:30.596 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:14:31.028 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 435.9568ms
+2026-05-26 19:14:31.177 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:14:31.651 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 472.1656ms
+2026-05-26 19:14:58.082 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:14:58.126 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:14:58.203 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:14:58.262 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:15:28.336 -03:00 [ERR] An error occurred using the connection to database 'VetBookDb' on server 'localhost,1433'.
+2026-05-26 19:15:28.422 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.CadastroContext.Infrastructure.Data.CadastroDbContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 19:15:29.819 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 31514.6245ms
+2026-05-26 19:15:30.115 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:15:30.155 -03:00 [ERR] HTTP POST /api/donos responded 500 in 32023.1821 ms
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 19:15:32.928 -03:00 [ERR] Erro não tratado: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: TCP Provider, error: 0 - Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.)
+ ---> System.ComponentModel.Win32Exception (10061): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:10061,State:0,Class:20
+2026-05-26 19:15:33.473 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 500 null application/json 35390.8451ms
+2026-05-26 19:21:34.746 -03:00 [INF] Application is shutting down...
+2026-05-26 19:22:00.028 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:22:17.946 -03:00 [WRN] Erro ao inicializar banco de dados. Verifique a connection string.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Program.cs:line 45
+2026-05-26 19:22:18.805 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:22:19.233 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:22:21.333 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:22:21.388 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:22:21.402 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:22:21.422 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:24:49.078 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:24:49.338 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 260.1492ms
+2026-05-26 19:24:49.525 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:24:49.827 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:24:49.839 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 11.5654ms
+2026-05-26 19:24:49.968 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:24:50.168 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 643.1266ms
+2026-05-26 19:24:50.175 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 207.627ms
+2026-05-26 19:25:01.980 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:25:02.017 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:25:02.178 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:25:02.273 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:25:03.025 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.CadastroContext.Infrastructure.Data.CadastroDbContext'.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-05-26 19:25:03.088 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 779.2843ms
+2026-05-26 19:25:03.114 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:25:03.127 -03:00 [ERR] HTTP POST /api/donos responded 500 in 1115.3566 ms
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:25:03.244 -03:00 [ERR] Erro não tratado: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:25:03.313 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 500 null application/json 1333.09ms
+2026-05-26 19:25:17.149 -03:00 [INF] Application is shutting down...
+2026-05-26 19:25:27.867 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:25:28.974 -03:00 [WRN] Erro ao inicializar banco de dados. Verifique a connection string.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at Program.<Main>$(String[] args) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Program.cs:line 45
+2026-05-26 19:25:29.080 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:25:29.104 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:25:29.219 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:25:29.235 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:25:29.238 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:25:29.242 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:25:43.043 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:25:43.884 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 854.5289ms
+2026-05-26 19:25:44.027 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:25:44.877 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 843.8436ms
+2026-05-26 19:25:56.815 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:25:56.832 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:25:56.907 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:25:57.061 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:25:58.881 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.CadastroContext.Infrastructure.Data.CadastroDbContext'.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-05-26 19:25:58.912 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 1837.7585ms
+2026-05-26 19:25:58.916 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:25:58.922 -03:00 [ERR] HTTP POST /api/donos responded 500 in 2093.6288 ms
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:25:58.953 -03:00 [ERR] Erro não tratado: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+System.ArgumentException: Connection string keyword 'server' is not supported. For a possible alternative, see https://go.microsoft.com/fwlink/?linkid=2142181.
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.GetIndex(String keyword)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder.set_Item(String keyword, Object value)
+   at System.Data.Common.DbConnectionStringBuilder.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnectionStringBuilder..ctor(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnectionFactory.GetPoolGroup(String connectionString)
+   at Microsoft.Data.Sqlite.SqliteConnection.set_ConnectionString(String value)
+   at Microsoft.Data.Sqlite.SqliteConnection..ctor(String connectionString)
+   at Microsoft.EntityFrameworkCore.Sqlite.Storage.Internal.SqliteRelationalConnection.CreateDbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.get_DbConnection()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.CadastroContext.Infrastructure.Repositories.DonoRepository.CpfExisteAsync(String cpf, Nullable`1 ignorarId, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Infrastructure\Repositories\DonoRepository.cs:line 30
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 27
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:25:58.986 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 500 null application/json 2171.4327ms
+2026-05-26 19:27:08.395 -03:00 [INF] Application is shutting down...
+2026-05-26 19:27:13.663 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:27:14.779 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2026-05-26 19:27:15.010 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Donos" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Donos" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Cpf" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Telefone" TEXT NOT NULL,
+    "Endereco" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL
+);
+2026-05-26 19:27:15.031 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Pets" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Pets" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Especie" TEXT NOT NULL,
+    "Raca" TEXT NOT NULL,
+    "Idade" INTEGER NOT NULL,
+    "Peso" TEXT NOT NULL,
+    "Sexo" TEXT NOT NULL,
+    "Observacoes" TEXT NULL,
+    "DonoId" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL,
+    CONSTRAINT "FK_Pets_Donos_DonoId" FOREIGN KEY ("DonoId") REFERENCES "Donos" ("Id") ON DELETE RESTRICT
+);
+2026-05-26 19:27:15.045 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Donos_Cpf" ON "Donos" ("Cpf");
+2026-05-26 19:27:15.055 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Pets_DonoId" ON "Pets" ("DonoId");
+2026-05-26 19:27:15.151 -03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:27:15.290 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:27:15.386 -03:00 [INF] Banco de dados inicializado.
+2026-05-26 19:27:15.549 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:27:15.671 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:27:15.871 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:27:15.892 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:27:15.898 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:27:15.904 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:27:19.204 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:27:20.024 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 819.885ms
+2026-05-26 19:27:20.470 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:27:21.277 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 806.5827ms
+2026-05-26 19:27:27.007 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:27:27.149 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 143.3002ms
+2026-05-26 19:27:27.259 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:27:27.349 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 91.5391ms
+2026-05-26 19:27:51.736 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:27:52.111 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:27:52.253 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:27:52.511 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:27:55.442 -03:00 [INF] Executed DbCommand (34ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Donos" AS "d"
+    WHERE "d"."Cpf" = @__cleaned_0)
+2026-05-26 19:27:56.801 -03:00 [INF] Executed DbCommand (22ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 11), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 15), @p5='?' (Size = 34), @p6='?' (Size = 11), @p7='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Donos" ("Id", "Cpf", "DataAtualizacao", "DataCadastro", "Email", "Endereco", "Nome", "Telefone")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-05-26 19:27:57.260 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Cpf", "t"."DataAtualizacao", "t"."DataCadastro", "t"."Email", "t"."Endereco", "t"."Nome", "t"."Telefone", "p"."Id", "p"."DataAtualizacao", "p"."DataCadastro", "p"."DonoId", "p"."Especie", "p"."Idade", "p"."Nome", "p"."Observacoes", "p"."Peso", "p"."Raca", "p"."Sexo"
+FROM (
+    SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."Telefone"
+    FROM "Donos" AS "d"
+    WHERE "d"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Pets" AS "p" ON "t"."Id" = "p"."DonoId"
+ORDER BY "t"."Id"
+2026-05-26 19:27:57.397 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 4844.4416ms
+2026-05-26 19:27:57.411 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:27:57.426 -03:00 [ERR] HTTP POST /api/donos responded 500 in 5323.7268 ms
+System.ArgumentException: VetBook.CadastroContext.Application.DTOs.DonoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+   at lambda_method124(Closure, Object, DonoResponse, ResolutionContext)
+   at AutoMapper.Mapper.MapCore[TSource,TDestination](TSource source, TDestination destination, ResolutionContext context, Type sourceType, Type destinationType, MemberMap memberMap)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 35
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:27:57.531 -03:00 [ERR] Erro não tratado: VetBook.CadastroContext.Application.DTOs.DonoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+System.ArgumentException: VetBook.CadastroContext.Application.DTOs.DonoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+   at lambda_method124(Closure, Object, DonoResponse, ResolutionContext)
+   at AutoMapper.Mapper.MapCore[TSource,TDestination](TSource source, TDestination destination, ResolutionContext context, Type sourceType, Type destinationType, MemberMap memberMap)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 35
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:27:57.586 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 500 null application/json 5848.6939ms
+2026-05-26 19:31:01.154 -03:00 [INF] Application is shutting down...
+2026-05-26 19:31:20.705 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:31:23.448 -03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:31:23.491 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:31:23.583 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:31:23.588 -03:00 [INF] Banco de dados inicializado.
+2026-05-26 19:31:23.717 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:31:23.746 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:31:23.893 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:31:23.898 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:31:23.902 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:31:23.905 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:31:24.137 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/index.html - null null
+2026-05-26 19:31:24.325 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/index.html - 200 null text/html;charset=utf-8 191.3566ms
+2026-05-26 19:31:24.500 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - null null
+2026-05-26 19:31:24.745 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 244.6854ms
+2026-05-26 19:31:41.332 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:31:42.326 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:31:42.534 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:31:42.589 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:31:43.661 -03:00 [INF] Executed DbCommand (14ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Donos" AS "d"
+    WHERE "d"."Cpf" = @__cleaned_0)
+2026-05-26 19:31:43.700 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 1094.579ms
+2026-05-26 19:31:43.708 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:31:43.717 -03:00 [ERR] HTTP POST /api/donos responded 500 in 1428.9109 ms
+VetBook.SharedKernel.Exceptions.DomainException: CPF já cadastrado no sistema.
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 28
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:31:43.819 -03:00 [ERR] Erro não tratado: CPF já cadastrado no sistema.
+VetBook.SharedKernel.Exceptions.DomainException: CPF já cadastrado no sistema.
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 28
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:31:43.851 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 400 null application/json 2519.1878ms
+2026-05-26 19:32:01.062 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 166
+2026-05-26 19:32:01.340 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:32:01.353 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:32:01.501 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:32:01.583 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Donos" AS "d"
+    WHERE "d"."Cpf" = @__cleaned_0)
+2026-05-26 19:32:01.597 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 34.2588ms
+2026-05-26 19:32:01.603 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:32:01.606 -03:00 [ERR] HTTP POST /api/donos responded 500 in 266.7560 ms
+VetBook.SharedKernel.Exceptions.DomainException: CPF inválido.
+   at VetBook.SharedKernel.ValueObjects.Cpf.Criar(String cpf) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\SharedKernel\ValueObjects\Cpf.cs:line 15
+   at VetBook.CadastroContext.Domain.Entities.Dono.Criar(String nome, String cpf, String email, String telefone, String endereco) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Domain\Entities\Dono.cs:line 36
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 30
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:32:01.624 -03:00 [ERR] Erro não tratado: CPF inválido.
+VetBook.SharedKernel.Exceptions.DomainException: CPF inválido.
+   at VetBook.SharedKernel.ValueObjects.Cpf.Criar(String cpf) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\SharedKernel\ValueObjects\Cpf.cs:line 15
+   at VetBook.CadastroContext.Domain.Entities.Dono.Criar(String nome, String cpf, String email, String telefone, String endereco) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Domain\Entities\Dono.cs:line 36
+   at VetBook.CadastroContext.Application.Services.DonoService.CriarAsync(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\DonoService.cs:line 30
+   at VetBook.API.Controllers.DonosController.Criar(CreateDonoRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\DonosController.cs:line 72
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:32:01.643 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 400 null application/json 580.9102ms
+2026-05-26 19:32:39.714 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 167
+2026-05-26 19:32:39.722 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:32:39.751 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:32:39.754 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:32:39.775 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Donos" AS "d"
+    WHERE "d"."Cpf" = @__cleaned_0)
+2026-05-26 19:32:40.232 -03:00 [INF] Executed DbCommand (28ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 11), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 16), @p5='?' (Size = 34), @p6='?' (Size = 11), @p7='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Donos" ("Id", "Cpf", "DataAtualizacao", "DataCadastro", "Email", "Endereco", "Nome", "Telefone")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-05-26 19:32:40.683 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Cpf", "t"."DataAtualizacao", "t"."DataCadastro", "t"."Email", "t"."Endereco", "t"."Nome", "t"."Telefone", "p"."Id", "p"."DataAtualizacao", "p"."DataCadastro", "p"."DonoId", "p"."Especie", "p"."Idade", "p"."Nome", "p"."Observacoes", "p"."Peso", "p"."Raca", "p"."Sexo"
+FROM (
+    SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."Telefone"
+    FROM "Donos" AS "d"
+    WHERE "d"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Pets" AS "p" ON "t"."Id" = "p"."DonoId"
+ORDER BY "t"."Id"
+2026-05-26 19:32:40.762 -03:00 [INF] Dono criado: "de631a98-93f5-45fc-a4c6-0cdacedc99f2" - Maria Silva
+2026-05-26 19:32:40.816 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.CadastroContext.Application.DTOs.DonoResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-26 19:32:40.953 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 1195.3568ms
+2026-05-26 19:32:40.973 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:32:40.977 -03:00 [INF] HTTP POST /api/donos responded 201 in 1256.4559 ms
+2026-05-26 19:32:40.992 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 201 null application/json; charset=utf-8 1279.4207ms
+2026-05-26 19:33:06.312 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=517.531.568-40 - null null
+2026-05-26 19:33:06.368 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 19:33:06.456 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 19:33:06.458 -03:00 [INF] HTTP GET /api/donos responded 401 in 103.2637 ms
+2026-05-26 19:33:06.462 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=517.531.568-40 - 401 0 null 149.9562ms
+2026-05-26 19:34:23.795 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/pets - application/json 179
+2026-05-26 19:34:23.813 -03:00 [INF] CORS policy execution successful.
+2026-05-26 19:34:23.818 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 19:34:23.821 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 19:34:23.920 -03:00 [INF] HTTP POST /api/pets responded 401 in 106.7857 ms
+2026-05-26 19:34:23.932 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/pets - 401 0 null 136.5244ms
+2026-05-26 19:47:01.780 -03:00 [INF] Application is shutting down...
+2026-05-26 19:47:26.483 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:47:29.374 -03:00 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2026-05-26 19:47:29.559 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Donos" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Donos" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Cpf" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Telefone" TEXT NOT NULL,
+    "Endereco" TEXT NOT NULL,
+    "SenhaHash" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL
+);
+2026-05-26 19:47:29.567 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Pets" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Pets" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Especie" TEXT NOT NULL,
+    "Raca" TEXT NOT NULL,
+    "Idade" INTEGER NOT NULL,
+    "Peso" TEXT NOT NULL,
+    "Sexo" TEXT NOT NULL,
+    "Observacoes" TEXT NULL,
+    "DonoId" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL,
+    CONSTRAINT "FK_Pets_Donos_DonoId" FOREIGN KEY ("DonoId") REFERENCES "Donos" ("Id") ON DELETE RESTRICT
+);
+2026-05-26 19:47:29.573 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Donos_Cpf" ON "Donos" ("Cpf");
+2026-05-26 19:47:29.582 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Pets_DonoId" ON "Pets" ("DonoId");
+2026-05-26 19:47:29.610 -03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:47:29.620 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:47:29.627 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-05-26 19:47:29.798 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:47:29.828 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:47:29.976 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:47:29.982 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:47:29.986 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:47:29.990 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:53:24.949 -03:00 [INF] Application is shutting down...
+2026-05-26 19:53:42.848 -03:00 [INF] Iniciando VetBook API...
+2026-05-26 19:53:59.011 -03:00 [INF] Executed DbCommand (88ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2026-05-26 19:54:00.400 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Donos" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Donos" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Cpf" TEXT NOT NULL,
+    "Email" TEXT NOT NULL,
+    "Telefone" TEXT NOT NULL,
+    "Endereco" TEXT NOT NULL,
+    "SenhaHash" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL
+);
+2026-05-26 19:54:00.693 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Pets" (
+    "Id" TEXT NOT NULL CONSTRAINT "PK_Pets" PRIMARY KEY,
+    "Nome" TEXT NOT NULL,
+    "Especie" TEXT NOT NULL,
+    "Raca" TEXT NOT NULL,
+    "Idade" INTEGER NOT NULL,
+    "Peso" TEXT NOT NULL,
+    "Sexo" TEXT NOT NULL,
+    "Observacoes" TEXT NULL,
+    "DonoId" TEXT NOT NULL,
+    "DataCadastro" TEXT NOT NULL,
+    "DataAtualizacao" TEXT NULL,
+    CONSTRAINT "FK_Pets_Donos_DonoId" FOREIGN KEY ("DonoId") REFERENCES "Donos" ("Id") ON DELETE RESTRICT
+);
+2026-05-26 19:54:00.896 -03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX "IX_Donos_Cpf" ON "Donos" ("Cpf");
+2026-05-26 19:54:00.940 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_Pets_DonoId" ON "Pets" ("DonoId");
+2026-05-26 19:54:01.123 -03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:54:01.149 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2026-05-26 19:54:01.164 -03:00 [INF] Banco de dados inicializado com sucesso.
+2026-05-26 19:54:01.752 -03:00 [INF] VetBook API iniciada com sucesso.
+2026-05-26 19:54:01.827 -03:00 [INF] User profile is available. Using 'C:\Users\thaua\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-05-26 19:54:02.280 -03:00 [INF] Now listening on: http://localhost:5000
+2026-05-26 19:54:02.309 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-05-26 19:54:02.315 -03:00 [INF] Hosting environment: Production
+2026-05-26 19:54:02.330 -03:00 [INF] Content root path: C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API
+2026-05-26 19:54:10.635 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/donos - application/json 137
+2026-05-26 19:54:11.083 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:54:11.132 -03:00 [INF] Route matched with {action = "Criar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreateDonoRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:54:12.232 -03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Donos" AS "d"
+    WHERE "d"."Cpf" = @__cleaned_0)
+2026-05-26 19:54:13.951 -03:00 [INF] Executed DbCommand (23ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 11), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (Size = 16), @p5='?' (Size = 16), @p6='?' (Size = 5), @p7='?' (Size = 60), @p8='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Donos" ("Id", "Cpf", "DataAtualizacao", "DataCadastro", "Email", "Endereco", "Nome", "SenhaHash", "Telefone")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-05-26 19:54:14.409 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Cpf", "t"."DataAtualizacao", "t"."DataCadastro", "t"."Email", "t"."Endereco", "t"."Nome", "t"."SenhaHash", "t"."Telefone", "p"."Id", "p"."DataAtualizacao", "p"."DataCadastro", "p"."DonoId", "p"."Especie", "p"."Idade", "p"."Nome", "p"."Observacoes", "p"."Peso", "p"."Raca", "p"."Sexo"
+FROM (
+    SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."SenhaHash", "d"."Telefone"
+    FROM "Donos" AS "d"
+    WHERE "d"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Pets" AS "p" ON "t"."Id" = "p"."DonoId"
+ORDER BY "t"."Id"
+2026-05-26 19:54:14.477 -03:00 [INF] Dono criado: "5cf7d83c-982c-4b17-948e-c0d6942c790e" - teste
+2026-05-26 19:54:14.526 -03:00 [INF] Executing CreatedAtActionResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.CadastroContext.Application.DTOs.DonoResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-26 19:54:14.707 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Criar (VetBook.API) in 3558.5263ms
+2026-05-26 19:54:14.716 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Criar (VetBook.API)'
+2026-05-26 19:54:14.737 -03:00 [INF] HTTP POST /api/donos responded 201 in 3785.3252 ms
+2026-05-26 19:54:14.758 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/donos - 201 null application/json; charset=utf-8 4122.1106ms
+2026-05-26 19:54:14.782 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/auth/login - application/json 44
+2026-05-26 19:54:14.847 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-26 19:54:14.874 -03:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(VetBook.API.Authentication.LoginRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.AuthController (VetBook.API).
+2026-05-26 19:54:14.994 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__cleaned_0='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."SenhaHash", "d"."Telefone"
+FROM "Donos" AS "d"
+WHERE "d"."Cpf" = @__cleaned_0
+LIMIT 1
+2026-05-26 19:54:16.461 -03:00 [INF] Login dono: teste ("5cf7d83c-982c-4b17-948e-c0d6942c790e")
+2026-05-26 19:54:16.474 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.API.Authentication.LoginResponse, VetBook.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-26 19:54:16.488 -03:00 [INF] Executed action VetBook.API.Controllers.AuthController.Login (VetBook.API) in 1603.602ms
+2026-05-26 19:54:16.497 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.AuthController.Login (VetBook.API)'
+2026-05-26 19:54:16.505 -03:00 [INF] HTTP POST /api/auth/login responded 200 in 1662.9050 ms
+2026-05-26 19:54:16.517 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/auth/login - 200 null application/json; charset=utf-8 1735.0618ms
+2026-05-26 19:54:16.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=5 - application/json null
+2026-05-26 19:54:16.962 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/pets?page=1&pageSize=50 - application/json null
+2026-05-26 19:54:16.964 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=50 - application/json null
+2026-05-26 19:54:16.964 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos?page=1&pageSize=50 - application/json null
+2026-05-26 19:54:16.976 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=50 - application/json null
+2026-05-26 19:54:17.290 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-26 19:54:17.291 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.DonosController.Listar (VetBook.API)'
+2026-05-26 19:54:17.292 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-26 19:54:17.292 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-26 19:54:17.292 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.Listar (VetBook.API)'
+2026-05-26 19:54:17.364 -03:00 [INF] Route matched with {action = "Listar", controller = "Veterinarios"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.VeterinarioContext.Domain.Interfaces.VeterinarioFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.VeterinariosController (VetBook.API).
+2026-05-26 19:54:17.368 -03:00 [INF] Route matched with {action = "Listar", controller = "Donos"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.CadastroContext.Domain.Interfaces.DonoFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.DonosController (VetBook.API).
+2026-05-26 19:54:17.369 -03:00 [INF] Route matched with {action = "Listar", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.CadastroContext.Domain.Interfaces.PetFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-26 19:54:17.369 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-26 19:54:17.369 -03:00 [INF] Route matched with {action = "Listar", controller = "Consultas"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(VetBook.AgendamentoContext.Domain.Interfaces.ConsultaFiltro, System.Threading.CancellationToken) on controller VetBook.API.Controllers.ConsultasController (VetBook.API).
+2026-05-26 19:54:17.669 -03:00 [ERR] Failed executing DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Consultas" AS "c"
+2026-05-26 19:54:17.690 -03:00 [ERR] Failed executing DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Consultas" AS "c"
+2026-05-26 19:54:17.691 -03:00 [INF] Executed DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Donos" AS "d"
+2026-05-26 19:54:17.689 -03:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Pets" AS "p"
+2026-05-26 19:54:17.689 -03:00 [ERR] Failed executing DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Veterinarios" AS "v"
+2026-05-26 19:54:17.786 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.VeterinarioContext.Infrastructure.Data.VeterinarioDbContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Veterinarios'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Veterinarios'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-05-26 19:54:17.787 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.AgendamentoContext.Infrastructure.Data.AgendamentoDbContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-05-26 19:54:17.797 -03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'VetBook.AgendamentoContext.Infrastructure.Data.AgendamentoDbContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-05-26 19:54:17.840 -03:00 [INF] Executed DbCommand (33ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Cpf", "t"."DataAtualizacao", "t"."DataCadastro", "t"."Email", "t"."Endereco", "t"."Nome", "t"."SenhaHash", "t"."Telefone", "p"."Id", "p"."DataAtualizacao", "p"."DataCadastro", "p"."DonoId", "p"."Especie", "p"."Idade", "p"."Nome", "p"."Observacoes", "p"."Peso", "p"."Raca", "p"."Sexo"
+FROM (
+    SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."SenhaHash", "d"."Telefone"
+    FROM "Donos" AS "d"
+    ORDER BY "d"."Nome"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "t"
+LEFT JOIN "Pets" AS "p" ON "t"."Id" = "p"."DonoId"
+ORDER BY "t"."Nome", "t"."Id"
+2026-05-26 19:54:17.872 -03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."DataAtualizacao", "t"."DataCadastro", "t"."DonoId", "t"."Especie", "t"."Idade", "t"."Nome", "t"."Observacoes", "t"."Peso", "t"."Raca", "t"."Sexo", "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."SenhaHash", "d"."Telefone"
+FROM (
+    SELECT "p"."Id", "p"."DataAtualizacao", "p"."DataCadastro", "p"."DonoId", "p"."Especie", "p"."Idade", "p"."Nome", "p"."Observacoes", "p"."Peso", "p"."Raca", "p"."Sexo"
+    FROM "Pets" AS "p"
+    ORDER BY "p"."Nome"
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "t"
+INNER JOIN "Donos" AS "d" ON "t"."DonoId" = "d"."Id"
+ORDER BY "t"."Nome"
+2026-05-26 19:54:17.974 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 453.1404ms
+2026-05-26 19:54:17.974 -03:00 [INF] Executed action VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API) in 602.6107ms
+2026-05-26 19:54:17.981 -03:00 [INF] Executed action VetBook.API.Controllers.ConsultasController.Listar (VetBook.API) in 446.5895ms
+2026-05-26 19:54:18.019 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-26 19:54:18.010 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.VeterinariosController.Listar (VetBook.API)'
+2026-05-26 19:54:18.024 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.CadastroContext.Application.DTOs.PetResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-26 19:54:18.006 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.ConsultasController.Listar (VetBook.API)'
+2026-05-26 19:54:18.027 -03:00 [INF] Executing OkObjectResult, writing value of type 'VetBook.SharedKernel.Common.ApiResponse`1[[VetBook.SharedKernel.Common.PagedResult`1[[VetBook.CadastroContext.Application.DTOs.DonoResponse, VetBook.CadastroContext.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], VetBook.SharedKernel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-05-26 19:54:18.170 -03:00 [ERR] HTTP GET /api/consultas responded 500 in 1098.3438 ms
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.AgendamentoContext.Infrastructure.Repositories.ConsultaRepository.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Infrastructure\Repositories\ConsultaRepository.cs:line 82
+   at VetBook.AgendamentoContext.Application.Services.ConsultaService.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Application\Services\ConsultaService.cs:line 103
+   at VetBook.API.Controllers.ConsultasController.Listar(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\ConsultasController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:54:18.171 -03:00 [ERR] HTTP GET /api/veterinarios responded 500 in 955.3051 ms
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Veterinarios'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.VeterinarioContext.Infrastructure.Repositories.VeterinarioRepository.ListarAsync(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\VeterinarioContext\Infrastructure\Repositories\VeterinarioRepository.cs:line 48
+   at VetBook.VeterinarioContext.Application.Services.VeterinarioService.ListarAsync(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\VeterinarioContext\Application\Services\VeterinarioService.cs:line 87
+   at VetBook.API.Controllers.VeterinariosController.Listar(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\VeterinariosController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:54:18.186 -03:00 [ERR] HTTP GET /api/consultas responded 500 in 1171.5724 ms
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.AgendamentoContext.Infrastructure.Repositories.ConsultaRepository.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Infrastructure\Repositories\ConsultaRepository.cs:line 82
+   at VetBook.AgendamentoContext.Application.Services.ConsultaService.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Application\Services\ConsultaService.cs:line 103
+   at VetBook.API.Controllers.ConsultasController.Listar(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\ConsultasController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:54:18.266 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.Listar (VetBook.API) in 883.1189ms
+2026-05-26 19:54:18.267 -03:00 [INF] Executed action VetBook.API.Controllers.DonosController.Listar (VetBook.API) in 892.5889ms
+2026-05-26 19:54:18.431 -03:00 [ERR] Erro não tratado: SQLite Error 1: 'no such table: Consultas'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.AgendamentoContext.Infrastructure.Repositories.ConsultaRepository.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Infrastructure\Repositories\ConsultaRepository.cs:line 82
+   at VetBook.AgendamentoContext.Application.Services.ConsultaService.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Application\Services\ConsultaService.cs:line 103
+   at VetBook.API.Controllers.ConsultasController.Listar(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\ConsultasController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:54:18.504 -03:00 [ERR] Erro não tratado: SQLite Error 1: 'no such table: Veterinarios'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Veterinarios'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.VeterinarioContext.Infrastructure.Repositories.VeterinarioRepository.ListarAsync(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\VeterinarioContext\Infrastructure\Repositories\VeterinarioRepository.cs:line 48
+   at VetBook.VeterinarioContext.Application.Services.VeterinarioService.ListarAsync(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\VeterinarioContext\Application\Services\VeterinarioService.cs:line 87
+   at VetBook.API.Controllers.VeterinariosController.Listar(VeterinarioFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\VeterinariosController.cs:line 33
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:54:18.520 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.Listar (VetBook.API)'
+2026-05-26 19:54:18.520 -03:00 [ERR] Erro não tratado: SQLite Error 1: 'no such table: Consultas'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: Consultas'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at VetBook.AgendamentoContext.Infrastructure.Repositories.ConsultaRepository.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Infrastructure\Repositories\ConsultaRepository.cs:line 82
+   at VetBook.AgendamentoContext.Application.Services.ConsultaService.ListarAsync(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\AgendamentoContext\Application\Services\ConsultaService.cs:line 103
+   at VetBook.API.Controllers.ConsultasController.Listar(ConsultaFiltro filtro, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\ConsultasController.cs:line 34
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:54:18.520 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.DonosController.Listar (VetBook.API)'
+2026-05-26 19:54:18.556 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=50 - 500 null application/json 1592.4539ms
+2026-05-26 19:54:18.565 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/veterinarios?page=1&pageSize=50 - 500 null application/json 1588.4541ms
+2026-05-26 19:54:18.566 -03:00 [INF] HTTP GET /api/pets responded 200 in 1497.9489 ms
+2026-05-26 19:54:18.587 -03:00 [INF] HTTP GET /api/donos responded 200 in 1396.4995 ms
+2026-05-26 19:54:18.587 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/consultas?page=1&pageSize=5 - 500 null application/json 1625.1854ms
+2026-05-26 19:54:18.687 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/pets?page=1&pageSize=50 - 200 null application/json; charset=utf-8 1724.1671ms
+2026-05-26 19:54:18.691 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos?page=1&pageSize=50 - 200 null application/json; charset=utf-8 1727.1701ms
+2026-05-26 19:55:00.238 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos - null null
+2026-05-26 19:55:00.293 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 19:55:00.315 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 19:55:00.325 -03:00 [INF] HTTP GET /api/donos responded 401 in 38.4847 ms
+2026-05-26 19:55:00.341 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos - 401 0 null 102.5406ms
+2026-05-26 19:55:17.349 -03:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=20025940821 - null null
+2026-05-26 19:55:17.835 -03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-05-26 19:55:17.851 -03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2026-05-26 19:55:17.878 -03:00 [INF] HTTP GET /api/donos responded 401 in 43.2503 ms
+2026-05-26 19:55:17.885 -03:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/api/donos?Cpf=20025940821 - 401 0 null 535.4802ms
+2026-05-26 19:55:54.944 -03:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/api/pets - application/json 152
+2026-05-26 19:55:54.951 -03:00 [INF] Executing endpoint 'VetBook.API.Controllers.PetsController.Criar (VetBook.API)'
+2026-05-26 19:55:54.969 -03:00 [INF] Route matched with {action = "Criar", controller = "Pets"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Criar(VetBook.CadastroContext.Application.DTOs.CreatePetRequest, System.Threading.CancellationToken) on controller VetBook.API.Controllers.PetsController (VetBook.API).
+2026-05-26 19:55:55.036 -03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT "d"."Id", "d"."Cpf", "d"."DataAtualizacao", "d"."DataCadastro", "d"."Email", "d"."Endereco", "d"."Nome", "d"."SenhaHash", "d"."Telefone"
+FROM "Donos" AS "d"
+WHERE "d"."Id" = @__id_0
+LIMIT 1
+2026-05-26 19:55:55.042 -03:00 [INF] Executed action VetBook.API.Controllers.PetsController.Criar (VetBook.API) in 69.0672ms
+2026-05-26 19:55:55.045 -03:00 [INF] Executed endpoint 'VetBook.API.Controllers.PetsController.Criar (VetBook.API)'
+2026-05-26 19:55:55.049 -03:00 [ERR] HTTP POST /api/pets responded 500 in 99.6867 ms
+VetBook.SharedKernel.Exceptions.NotFoundException: Dono com identificador '3fa85f64-5717-4562-b3fc-2c963f66afa6' não foi encontrado.
+   at VetBook.CadastroContext.Application.Services.PetService.CriarAsync(CreatePetRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\PetService.cs:line 30
+   at VetBook.API.Controllers.PetsController.Criar(CreatePetRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\PetsController.cs:line 85
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2026-05-26 19:55:55.092 -03:00 [ERR] Erro não tratado: Dono com identificador '3fa85f64-5717-4562-b3fc-2c963f66afa6' não foi encontrado.
+VetBook.SharedKernel.Exceptions.NotFoundException: Dono com identificador '3fa85f64-5717-4562-b3fc-2c963f66afa6' não foi encontrado.
+   at VetBook.CadastroContext.Application.Services.PetService.CriarAsync(CreatePetRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\CadastroContext\Application\Services\PetService.cs:line 30
+   at VetBook.API.Controllers.PetsController.Criar(CreatePetRequest request, CancellationToken ct) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Controllers\PetsController.cs:line 85
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at VetBook.API.Middlewares.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in C:\Users\thaua\OneDrive\Documentos\Claude\Projects\VetBook\backend\src\API\Middlewares\GlobalExceptionMiddleware.cs:line 23
+2026-05-26 19:55:55.106 -03:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/pets - 404 null application/json 162.1843ms

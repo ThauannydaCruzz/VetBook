@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: vetbook-sqlserver
+    environment:
+      SA_PASSWORD: "VetBook@123!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "VetBook@123!", "-Q", "SELECT 1"]
+      interval: 10s
+      retries: 10
+      start_period: 30s
+      timeout: 5s
+    networks:
+      - vetbook-network
+
+  vetbook-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vetbook-api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=VetBookDb;User Id=sa;Password=VetBook@123!;TrustServerCertificate=True;MultipleActiveResultSets=true
+      - JwtSettings__SecretKey=VetBook-Super-Secret-Key-2024-DDD-CleanArch-JWT!@#$$%^&*()
+      - JwtSettings__Issuer=VetBookAPI
+      - JwtSettings__Audience=VetBookClients
+      - JwtSettings__ExpirationMinutes=60
+    ports:
+      - "8080:8080"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - vetbook-network
+    restart: unless-stopped
+
+volumes:
+  sqlserver_data:
+
+networks:
+  vetbook-network:
+    driver: bridge

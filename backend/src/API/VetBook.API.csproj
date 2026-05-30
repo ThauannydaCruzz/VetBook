@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>VetBook.API</RootNamespace>
+    <UserSecretsId>vetbook-api-secrets</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharedKernel\VetBook.SharedKernel.csproj" />
+    <ProjectReference Include="..\CadastroContext\Application\VetBook.CadastroContext.Application.csproj" />
+    <ProjectReference Include="..\CadastroContext\Infrastructure\VetBook.CadastroContext.Infrastructure.csproj" />
+    <ProjectReference Include="..\VeterinarioContext\Application\VetBook.VeterinarioContext.Application.csproj" />
+    <ProjectReference Include="..\VeterinarioContext\Infrastructure\VetBook.VeterinarioContext.Infrastructure.csproj" />
+    <ProjectReference Include="..\AgendamentoContext\Application\VetBook.AgendamentoContext.Application.csproj" />
+    <ProjectReference Include="..\AgendamentoContext\Infrastructure\VetBook.AgendamentoContext.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+  </ItemGroup>
+</Project>
